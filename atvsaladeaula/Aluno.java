@@ -2,19 +2,24 @@ package atvsaladeaula;
 
 public class Aluno {
     String nome;
-    String sexo;
     int idade;
-    int cpf;
+    int matricula;
     
-    void falarNome(){
-        System.out.println("Nome do aluno: " + nome);
+    public Aluno(String nomeA , int idadeA, int matriculaA){
+        this.nome = nomeA;
+        this.idade = idadeA;
+        this.matricula = matriculaA;
     }
     
-    void falarSexo(){
-        System.out.println("Sexo do aluno: " + sexo);
+    String mostra(){
+        return ("Nome do aluno: " + nome + "\nIdade do aluno: " + idade + "\nMatricula do aluno: " + matricula);
     }
     
-    void falarCpf(){
-        System.out.println("Cpf do aluno: " + cpf);
+    String idadeMatricular(){
+        return ((idade >= 18 ? "Pode fazer matricula!" : "Não pode fazer matricula!"));  
+    }
+    
+    void matriculaA(int novaMatricula){
+        matricula = novaMatricula;
     }
 }
