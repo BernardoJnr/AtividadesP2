@@ -1,6 +1,7 @@
 package atvlista3;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class AtvLista3 {
@@ -11,7 +12,9 @@ public class AtvLista3 {
         //Questao2();
         //Questao3();
         //Questao4();
-        Questao5();
+        //Questao5();
+        //Questao6();
+        //Questao7();
 
     }
 
@@ -71,10 +74,10 @@ public class AtvLista3 {
     }
 
     static void Questao4() {
-        ArrayList<Funcionario> executivo = new ArrayList<Funcionario>();
-        ArrayList<Funcionario> administrativo = new ArrayList<Funcionario>();
-        ArrayList<Funcionario> empresarial = new ArrayList<Funcionario>();
-        ArrayList<Funcionario> lista = new ArrayList<Funcionario>();
+        ArrayList<Funcionario> executivo = new ArrayList();
+        ArrayList<Funcionario> administrativo = new ArrayList();
+        ArrayList<Funcionario> empresarial = new ArrayList();
+        ArrayList<Funcionario> lista = new ArrayList();
 
         Funcionario funcionario3 = new Funcionario("Tereza", 1452041789, 1500, Cargo.EXECUTIVO);
         executivo.add(funcionario3);
@@ -89,45 +92,84 @@ public class AtvLista3 {
         lista.add(funcionario1);
 
         System.out.println("Lista:");
-        for (Funcionario i : lista) {
-            System.out.println("Nome: " + i.getNome());
-            System.out.println("Saldo: " + i.getSalario());
+        for (Funcionario a : lista) {
+            System.out.println("Nome: " + a.getNome());
+            System.out.println("Saldo: " + a.getSalario());
         }
         System.out.println("+++++++++++++++++++++++++++++++");
-        for (Funcionario i : empresarial) {
-            System.out.println("Empresarial: " + i.getNome());
-            System.out.println("Saldo: " + i.getSalario());
+        for (Funcionario a : empresarial) {
+            System.out.println("Empresarial: " + a.getNome());
+            System.out.println("Saldo: " + a.getSalario());
         }
-        for (Funcionario i : administrativo) {
-            System.out.println("Adminstrativo: " + i.getNome());
-            System.out.println("Saldo: " + i.getSalario());
+        for (Funcionario a : administrativo) {
+            System.out.println("Adminstrativo: " + a.getNome());
+            System.out.println("Saldo: " + a.getSalario());
         }
-        for (Funcionario i : executivo) {
-            System.out.println("Executivo: " + i.getNome());
-            System.out.println("Saldo: " + i.getSalario());
+        for (Funcionario a : executivo) {
+            System.out.println("Executivo: " + a.getNome());
+            System.out.println("Saldo: " + a.getSalario());
         }
     }
 
     static void Questao5() {
-        ArrayList<Analise> analises = new ArrayList<Analise>();
-        ArrayList<Analise> analises2 = new ArrayList<Analise>();
+        ArrayList<Analise> analise = new ArrayList();
+        ArrayList<Analise> analise2 = new ArrayList();
 
-        Analise note1 = new Analise("Acer",5,4,4,4,5,3); 
-        Analise note2 = new Analise("Samsung",2,1,1,2,3,4);
-        Analise note3 = new Analise("Philips",2,3,1,4,4,5); 
-        
-        analises.add(note1);
-        analises.add(note2);
-        analises.add(note3);
+        Analise note1 = new Analise("Acer", 5, 4, 4, 4, 5, 3);
+        Analise note2 = new Analise("Samsung", 2, 1, 1, 2, 3, 4);
+        Analise note3 = new Analise("Philips", 2, 3, 1, 4, 4, 5);
 
-        for (Analise i : analises) {
-            if (i.analiseGeral() >= 3) {
-                analises2.add(i);
-            }   
+        analise.add(note1);
+        analise.add(note2);
+        analise.add(note3);
+
+        for (Analise a : analise) {
+            if (a.analiseGeral() >= 3) {
+                analise2.add(a);
+            }
         }
-        for(Analise i : analises2){
-            System.out.println(i.getNome());
+        for (Analise a : analise2) {
+            System.out.println(a.getNome());
         }
     }
-}
 
+    static void Questao6() {
+        ArrayList<Integer> Lista = new ArrayList();
+        Random gerar = new Random();
+
+        for (int i = 1; i < 15; i++) {
+            gerar.nextInt();
+            Lista.add(i);
+        }
+
+        Verificar verificar1 = new Verificar();
+
+        verificar1.setArray(Lista);
+        verificar1.tamanho();
+        verificar1.Positivos();
+        verificar1.Negativos();
+        verificar1.Primos();
+        verificar1.Divisiveis(2);
+    }
+
+    static void Questao7() {
+        
+        ArrayList<Jogador> jogadores = new ArrayList<>();
+
+        Tecnico Diniz = new Tecnico("Fernado Diniz", "15/03/2019","Fluminense");
+        Time SaoPaulo = new Time("Sao Paulo", "25/01/1930", jogadores, Diniz);
+
+        Jogador jogador1 = new Jogador("Hernanes", "01/01/2019", 0501424474, "Masculino", SaoPaulo, "Meia", 8, 0, 3, 1, 13);
+        Jogador jogador2 = new Jogador("Daniel Alves", "02/08/2019", 154248955, "Masculino", SaoPaulo, "Meia", 6, 0, 4, 0, 20);
+        Jogador jogador3 = new Jogador("Alexandre Pato", "27/03/2019", 145778452, "Masculino", SaoPaulo, "Atacante", 12, 0, 1, 0, 18);
+        
+
+        jogadores.add(jogador1);
+        jogadores.add(jogador2);
+        jogadores.add(jogador3);
+
+        SaoPaulo.artilheiro();
+        SaoPaulo.experiente();
+        SaoPaulo.statusTime();
+    }
+}
